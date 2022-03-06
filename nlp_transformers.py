@@ -6,6 +6,7 @@ from utils import translate_sentence, bleu, load_checkpoint, save_checkpoint
 from torch.utils.tensorboard import SummaryWriter
 from torchtext.datasets import Multi30k
 from torchtext.legacy.data import Field, BucketIterator
+import random
 
 
 class SelfAttention(nn.Module):
@@ -341,8 +342,6 @@ def preprocessing():
     english.build_vocab(train_data, max_size=10000, min_freq=2)
 
     return german, english, train_data, valid_data, test_data
-    
-
 
 if __name__=="__main__":
     print("Starting...\n")
@@ -436,7 +435,6 @@ if __name__=="__main__":
         model.train()
 
         for batch_idx, batch in enumerate(train_iterator):
-            print(batch_idx, batch)
             input = batch.src.to(device)
             target = batch.target.to(device)
 

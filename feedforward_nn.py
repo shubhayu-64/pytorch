@@ -168,4 +168,4 @@ if __name__ == "__main__":
     print(result)
 
     # Save model weights and biases
-    torch.save(model.state_dict(), 'mnist-feedforwardnn.pth')
+    # torch.save(model.state_dict(), 'mnist-feedforwardnn.pth')
